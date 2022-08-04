@@ -15,7 +15,7 @@ ESP32 CAM with adaptor
 1. 어댑터의 **IO0** 버튼을 떼지말고 누릅니다. 그림에 빨간색 버튼입니다.<br><br>
 2. ESP32 CAM 보드의 뒤쪽에 있는 **RST** 버튼을 한번 누르고 뗍니다. 그림에 녹색 버튼입니다. <br><br>
 3. 어댑터의 **IO0** 버튼을 뗍니다.<br><br>
-4. 아두이노 시리얼 모니터에서 속도를 115200으로 맞추면 아래와 같은 메시지가 나옮니다.<br><br>
+4. 아두이노 시리얼 모니터에서 속도를 115200으로 맞추고 아래와 같은 메시지가 나오면 펌웨어를 업로드할 준비가 된 것입니다.<br>
    rst:0x1 (POWERON_RESET),boot:0x3 (DOWNLOAD_BOOT(UART0/UART1/SDIO_REI_REO_V2))<br>
    waiting for download<br>
 <img src=Doc/4_Serial_Monitor.png><br>
