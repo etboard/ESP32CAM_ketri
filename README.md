@@ -12,7 +12,7 @@ ESP32 CAM with adaptor
  
 ### Upload Step
 <img src=Doc/all.jpeg>
-1. push and hold **IO0** button in adaptor as red circle in picture
+1. push and hold **IO0** button in adaptor as red circle in picture<br>
 2. click **RST** button in ESP32 CAM as green circle in picture     
 3. release **IO0** button in adaptor   
 4. you can see below message in Serial Monitor Windows
