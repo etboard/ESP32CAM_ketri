@@ -2,10 +2,10 @@
 ESP32 CAM with adaptor
 
 ### 하드웨어
-. ESP32 CAM: Ai Thinker 보드
+. ESP32 CAM: Ai Thinker 보드   
 <img src=Doc/2_ESP32_CAM_small.png>
 
-. ESP32 어댑터
+. ESP32 어댑터   
 <img src=Doc/1_ESP32_Adaptor_small.jpeg>
  
 ### Upload Step
