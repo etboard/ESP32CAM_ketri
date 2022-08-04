@@ -6,7 +6,7 @@ ESP32 CAM with adaptor
 . ESP32 Adaptor
 
 ### Upload Step
-1. push and hold reset button in adaptor
+1. push and hold IO0 button in adaptor
 2. click reset button in ESP32 CAM
 3. unpush reset button in adaptor
 4. you can see below message in Serial Monitor Windows
