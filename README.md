@@ -1,23 +1,47 @@
 # ESP32CAM_ketri
 ESP32 CAM with adaptor
+***
 
-### Hardware
-. ESP32 CAM: Ai Thinker
-. ESP32 Adaptor
+### 하드웨어
+* ESP32 CAM 보드<br>
+<img src=Doc/2_ESP32_CAM_small.png><br>
 
-### Upload Step
-<img src=Doc/2_ESP32_CAM_small.png> <img src=Doc/1_ESP32_Adaptor_small.jpeg>
+* ESP32 CAM 어댑터<br>
+<img src=Doc/1_ESP32_Adaptor_small.jpeg><br>
+
+ ***
+ 
+### 업로드 순서
 <img src=Doc/all.jpeg>
+1. 어댑터의 **IO0** 버튼을 떼지말고 누릅니다. 그림에 빨간색 버튼입니다.<br><br>
+2. ESP32 CAM 보드의 뒤쪽에 있는 **RST** 버튼을 한번 누르고 뗍니다. 그림에 녹색 버튼입니다. <br><br>
+3. 어댑터의 **IO0** 버튼을 뗍니다.<br><br>
+4. 아두이노 시리얼 모니터에서 속도를 115200으로 맞추고 아래와 같은 메시지가 나오면 펌웨어를 업로드할 준비가 된 것입니다.<br>
+   rst:0x1 (POWERON_RESET),boot:0x3 (DOWNLOAD_BOOT(UART0/UART1/SDIO_REI_REO_V2))<br>
+   waiting for download<br>
+<img src=Doc/4_Serial_Monitor.png><br>
+5. 아두이노나 이티보드 펨웨어 업로더에서 펌웨어를 업로드 합니다.<br>
 
-1. push and hold IO0 button in adaptor   
+***
+
+### 이티보드 펌웨어 업로더(ETboard Firmware Uploader)
+* [다운로드] (http://www.oapass.com/pds/pub/ketri/2022/etboard_firmware_uploader/setup.exe)
+</br></br>
 
 
-2. click reset button in ESP32 CAM   
+### 이티보드(ETBoard) 채널 안내
+
+* [이티보드 스토어팜 (https://smartstore.naver.com/ketri)](https://smartstore.naver.com/ketri)
+* [이티보드 홈페이지 (http://et.ketri.re.kr)](http://et.ketri.re.kr)
+* [이티보드 블로그 (https://blog.naver.com/etboard)](https://blog.naver.com/etboard)
+* [이티보드 유튜브 (https://www.youtube.com/channel/UCFZdZIaziZ7rKKfLSfUv3Qg)](https://www.youtube.com/channel/UCFZdZIaziZ7rKKfLSfUv3Qg)
+</br></br>
 
 
-3. unpush reset button in adaptor   
+### 한국공학기술연구원(KETRi) 채널 안내
+* [KETRi 홈페이지 (http://www.ketri.re.kr)](http://www.ketri.re.kr)
+* [KETRi 페이스북 (https://www.facebook.com/ketri2484/)](https://www.facebook.com/ketri2484/)
+* [KETRi 인스타그램 (https://www.instagram.com/ketri_no1/)](https://www.instagram.com/ketri_no1/)
+* KETRi 전화번호: 061-721-2484
+</br></br>
 
-4. you can see below message in Serial Monitor Windows
-   rst:0x1 (POWERON_RESET),boot:0x3 (DOWNLOAD_BOOT(UART0/UART1/SDIO_REI_REO_V2))
-   waiting for download
-<img src=Doc/4_Serial_Monitor.png>
