@@ -10,7 +10,7 @@ ESP32 CAM with adaptor
 <img src=Doc/1_ESP32_Adaptor_small.jpeg>
  ***
  
-### Upload Step
+### 업로드 순서
 <img src=Doc/all.jpeg>
 1. 어댑터의 **IO0** 버튼을 떼지말고 누릅니다. 그림에 빨간색 버튼입니다.<br><br>
 2. ESP32 CAM 보드의 뒤쪽에 있는 **RST** 버튼을 한번 누르고 뗍니다. 그림에 녹색 버튼입니다. <br><br>
