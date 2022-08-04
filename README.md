@@ -1,5 +1,6 @@
 # ESP32CAM_ketri
 ESP32 CAM with adaptor
+***
 
 ### 하드웨어
 . ESP32 CAM: Ai Thinker 보드   
@@ -7,10 +8,11 @@ ESP32 CAM with adaptor
 
 . ESP32 어댑터   
 <img src=Doc/1_ESP32_Adaptor_small.jpeg>
+ ***
  
 ### Upload Step
 <img src=Doc/all.jpeg>
-1. push and hold **IO0** button in adaptor as red circle in picture      
+1. push and hold **IO0** button in adaptor as red circle in picture
 2. click **RST** button in ESP32 CAM as green circle in picture     
 3. release **IO0** button in adaptor   
 4. you can see below message in Serial Monitor Windows
