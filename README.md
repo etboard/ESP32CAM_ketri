@@ -20,4 +20,4 @@ ESP32 CAM with adaptor
 4. you can see below message in Serial Monitor Windows
    rst:0x1 (POWERON_RESET),boot:0x3 (DOWNLOAD_BOOT(UART0/UART1/SDIO_REI_REO_V2))
    waiting for download
-<img src=Doc/4_Serial Monitor.png>
+<img src=Doc/4_Serial_Monitor.png>
