@@ -125,7 +125,7 @@ void setup() {
   s->set_vflip(s, 1);
 #endif
 
-/*
+/* 2022.09.13 : SCS
 
   WiFi.begin(ssid, password);
   WiFi.setSleep(false);
@@ -147,6 +147,7 @@ void setup() {
   Serial.println("' to connect");
 }
 
+// 2022.09.13 : SCS
 void setup_wifi() {
     WiFi.mode(WIFI_STA); // explicitly set mode, esp defaults to STA+AP
     // it is a good practice to make sure your code sets wifi mode how you want it.
@@ -159,7 +160,7 @@ void setup_wifi() {
 
     // reset settings - wipe stored credentials for testing
     // these are stored by the esp library
-    wm.resetSettings();
+    //wm.resetSettings();
 
     // Automatically connect using saved credentials,
     // if connection fails, it starts an access point with the specified name ( "AutoConnectAP"),
@@ -167,9 +168,9 @@ void setup_wifi() {
     // then goes into a blocking loop awaiting configuration and will return success result
 
     bool res;
-    // res = wm.autoConnect(); // auto generated AP name from chipid
-    // res = wm.autoConnect("AutoConnectAP"); // anonymous ap
-    res = wm.autoConnect("AutoConnectAP","password"); // password protected ap
+    //res = wm.autoConnect(); // auto generated AP name from chipid
+    res = wm.autoConnect("AutoConnectAP"); // anonymous ap
+    //res = wm.autoConnect("AutoConnectAP","12341234"); // password protected ap
 
     if(!res) {
         Serial.println("Failed to connect");
