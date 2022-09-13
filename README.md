@@ -10,7 +10,7 @@ ESP32 CAM with adaptor
 <img src=Doc/1_ESP32_Adaptor_small.jpeg><br>
 
  ***
- 
+
 ### 업로드 순서
 <img src=Doc/all.jpeg>
 1. 어댑터의 **IO0** 버튼을 떼지말고 누릅니다. 그림에 빨간색 버튼입니다.<br><br>
@@ -24,8 +24,8 @@ ESP32 CAM with adaptor
 
 ***
 
-### 이티보드 펌웨어 업로더(ETboard Firmware Uploader)
-* [다운로드] (http://www.oapass.com/pds/pub/ketri/2022/etboard_firmware_uploader/setup.exe)
+### ESP32 CAM Wizard
+* [다운로드] (http://www.oapass.com/pds/pub/ketri/2022/esp32_cam_wizard/setup.exe)
 </br></br>
 
 
@@ -44,4 +44,3 @@ ESP32 CAM with adaptor
 * [KETRi 인스타그램 (https://www.instagram.com/ketri_no1/)](https://www.instagram.com/ketri_no1/)
 * KETRi 전화번호: 061-721-2484
 </br></br>
-
