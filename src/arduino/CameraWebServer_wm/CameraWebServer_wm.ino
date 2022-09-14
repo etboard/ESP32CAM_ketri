@@ -2,6 +2,10 @@
 #include <WiFi.h>
 #include <WiFiManager.h> // https://github.com/tzapu/WiFiManager
 
+// 2022.09.14 : SCS
+//#include "soc/soc.h"
+//#include "soc/rtc_cntl_reg.h"
+
 //
 // WARNING!!! PSRAM IC required for UXGA resolution and high JPEG quality
 //            Ensure ESP32 Wrover Module or other board with PSRAM is selected
@@ -44,6 +48,19 @@ void setup() {
   Serial.setDebugOutput(true);
   Serial.println();
 
+  Serial.println("step 0000 : CameraWebServer_vm_with_delay v.091");
+  Serial.println("step 0010 : 2022.09.14");
+  Serial.println("step 0020 : http://et.ketri.re.kr\n");
+  
+  Serial.println("step 1000 : start\n");
+
+  Serial.println("step 2000 : setup_wifi()\n"); delay(2); // <======================
+  // 2022.09.14 : SCS
+  // WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0);  
+  setup_wifi();
+  // delay(500);
+  // WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 1);  
+  
   camera_config_t config;
   config.ledc_channel = LEDC_CHANNEL_0;
   config.ledc_timer = LEDC_TIMER_0;
@@ -71,7 +88,8 @@ void setup() {
   config.fb_location = CAMERA_FB_IN_PSRAM;
   config.jpeg_quality = 12;
   config.fb_count = 1;
-  
+
+  Serial.println("\nstep 3000 : config camera\n");   
   // if PSRAM IC present, init with UXGA resolution and higher JPEG quality
   //                      for larger pre-allocated frame buffer.
   if(config.pixel_format == PIXFORMAT_JPEG){
@@ -97,6 +115,7 @@ void setup() {
   pinMode(14, INPUT_PULLUP);
 #endif
 
+  Serial.println("step 3100 : esp_camera_init()\n"); delay(1); // <======================
   // camera init
   esp_err_t err = esp_camera_init(&config);
   if (err != ESP_OK) {
@@ -125,21 +144,8 @@ void setup() {
   s->set_vflip(s, 1);
 #endif
 
-/* 2022.09.13 : SCS
 
-  WiFi.begin(ssid, password);
-  WiFi.setSleep(false);
-
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
-    Serial.print(".");
-  }
-  Serial.println("");
-  Serial.println("WiFi connected");
-*/
-
-  setup_wifi();
-
+  Serial.println("step 4000 : startCameraServer()\n"); delay(1); //<======================
   startCameraServer();
 
   Serial.print("Camera Ready! Use 'http://");
@@ -149,24 +155,19 @@ void setup() {
 
 // 2022.09.13 : SCS
 void setup_wifi() {
-    WiFi.mode(WIFI_STA); // explicitly set mode, esp defaults to STA+AP
+    Serial.println("step 2100 : setup_wifi() start \n"); delay(5); // <======================
+    WiFi.mode(WIFI_STA); // explicitly set mode, esp defaults to STA+AP    
     // it is a good practice to make sure your code sets wifi mode how you want it.
 
-    // put your setup code here, to run once:
-    Serial.begin(115200);
-    
-    //WiFiManager, Local intialization. Once its business is done, there is no need to keep it around
+    Serial.println("step 2200 : Create WiFiManager\n"); delay(2);  // <======================
     WiFiManager wm;
 
-    // reset settings - wipe stored credentials for testing
-    // these are stored by the esp library
-    //wm.resetSettings();
+    //sets timeout until configuration portal gets turned off
+    //useful to make it all retry or go to sleep
+    //in seconds
+    wm.setTimeout(30);
 
-    // Automatically connect using saved credentials,
-    // if connection fails, it starts an access point with the specified name ( "AutoConnectAP"),
-    // if empty will auto generate SSID, if password is blank it will be anonymous AP (wm.autoConnect())
-    // then goes into a blocking loop awaiting configuration and will return success result
-
+    Serial.println("step 2300 : autoConnect()\n"); delay(2); // <======================
     bool res;
     //res = wm.autoConnect(); // auto generated AP name from chipid
     res = wm.autoConnect("AutoConnectAP"); // anonymous ap
@@ -174,7 +175,8 @@ void setup_wifi() {
 
     if(!res) {
         Serial.println("Failed to connect");
-        // ESP.restart();
+        delay(2000);
+        ESP.restart();
     } 
     else {
         //if you get here you have connected to the WiFi    

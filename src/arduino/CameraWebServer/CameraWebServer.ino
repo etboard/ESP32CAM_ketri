@@ -3,6 +3,10 @@
 #include "esp_camera.h"
 #include <WiFi.h>
 
+// 2022.09.14 : SCS
+// #include "soc/soc.h"
+// #include "soc/rtc_cntl_reg.h"
+
 //
 // WARNING!!! PSRAM IC required for UXGA resolution and high JPEG quality
 //            Ensure ESP32 Wrover Module or other board with PSRAM is selected
@@ -35,16 +39,21 @@
 // ===========================
 // Enter your WiFi credentials
 // ===========================
-const char* ssid = "ketri-guest";
-const char* password = "0617212484";
+const char* ssid = "myiptime";
+const char* password = "12341234";
 
 void startCameraServer();
 
 void setup() {
+  // 2022.09.14 : SCS
+  // WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0);  
+   
   Serial.begin(115200);
   Serial.setDebugOutput(true);
   Serial.println();
 
+  Serial.println("step 1000\n"); delay(1000);
+  
   camera_config_t config;
   config.ledc_channel = LEDC_CHANNEL_0;
   config.ledc_timer = LEDC_TIMER_0;
@@ -72,7 +81,8 @@ void setup() {
   config.fb_location = CAMERA_FB_IN_PSRAM;
   config.jpeg_quality = 12;
   config.fb_count = 1;
-  
+
+  Serial.println("step 1100\n"); delay(1000);  
   // if PSRAM IC present, init with UXGA resolution and higher JPEG quality
   //                      for larger pre-allocated frame buffer.
   if(config.pixel_format == PIXFORMAT_JPEG){
@@ -98,6 +108,7 @@ void setup() {
   pinMode(14, INPUT_PULLUP);
 #endif
 
+  Serial.println("step 2000\n"); delay(1000);
   // camera init
   esp_err_t err = esp_camera_init(&config);
   if (err != ESP_OK) {
