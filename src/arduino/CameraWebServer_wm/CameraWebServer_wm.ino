@@ -35,6 +35,8 @@
 
 #include "camera_pins.h"
 
+#define BUILTIN_LED 4                // Ai Thinker LED
+
 // ===========================
 // Enter your WiFi credentials
 // ===========================
@@ -44,6 +46,10 @@ const char* password = "**********";
 void startCameraServer();
 
 void setup() {
+  delay(500);
+  pinMode(BUILTIN_LED, OUTPUT);
+  blink_fast();
+  
   Serial.begin(115200);
   Serial.setDebugOutput(true);
   Serial.println();
@@ -58,6 +64,7 @@ void setup() {
   // 2022.09.14 : SCS
   // WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 0);  
   setup_wifi();
+  blink();
   // delay(500);
   // WRITE_PERI_REG(RTC_CNTL_BROWN_OUT_REG, 1);  
   
@@ -151,6 +158,7 @@ void setup() {
   Serial.print("Camera Ready! Use 'http://");
   Serial.print(WiFi.localIP());
   Serial.println("' to connect");
+  blink();
 }
 
 // 2022.09.13 : SCS
@@ -188,4 +196,18 @@ void setup_wifi() {
 void loop() {
   // Do nothing. Everything is done in another task by the web server
   delay(10000);
+}
+
+void blink() {
+  digitalWrite(BUILTIN_LED, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delayMicroseconds(1);              // wait for a Micro seconds
+  digitalWrite(BUILTIN_LED, LOW);    // turn the LED off by making the voltage LOW
+  delay(1);    
+}
+
+void blink_fast() {
+  for(int i=0; i<4; i++) {
+    blink();
+    delay(50);
+  }
 }
